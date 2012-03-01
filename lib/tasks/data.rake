@@ -9,5 +9,10 @@ namespace :db do
       password = "123456"
       User.create!(:name => name, :email => email, :password => password, :password_confirmation => password);
     end
+    User.all(:limit => 10).each do |user|
+      25.times do
+        user.events.create!(:content => Faker::Lorem.sentence(25), :calendar_date => Date.today.prev_year+rand(730))
+      end
+    end
   end
 end

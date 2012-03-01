@@ -1,0 +1,13 @@
+<%= form_for @event do |f| %>
+  <%# render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <label>Date:</label>
+    <%= f.text_field :calendar_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create event" %>
+  </div>
+<% end %>

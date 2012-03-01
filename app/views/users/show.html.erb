@@ -1,5 +1,10 @@
 <table summary="profile information" class="profile">
   <tr>
-    <td> <h1><%= @user.name %> </h1> </td>
+    <td>
+      <table summary="user events" id="events_list">
+        <%= render 'shared/events' %>
+      </table>
+    </td>
+    <td> <%= render 'shared/calendar' %> </td>
   </tr>
 </table>

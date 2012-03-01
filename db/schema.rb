@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301114325) do
+ActiveRecord::Schema.define(:version => 20120301142049) do
+
+  create_table "events", :force => true do |t|
+    t.string   "content"
+    t.date     "calendar_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

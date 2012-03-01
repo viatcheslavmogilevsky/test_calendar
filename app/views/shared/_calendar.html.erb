@@ -1,0 +1,5 @@
+<div class="calendar">
+  <% unless @events.empty? %>
+    <%= raw(scatter(@events.map{|event| event.calendar_date})) %>
+  <% end %>
+</div>
