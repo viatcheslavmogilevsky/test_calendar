@@ -85,7 +85,7 @@ module ApplicationHelper
  def show_current_day(day,count)
    res = ''
    res << %(<tr>) if day.monday?
-   res <<  %(<td class ="iday">)
+   res <<  %(<td class ="iday" id="#{day.day}_#{day.month}_#{day.year}">)
    res << link_to(%[#{day.day}(#{count})],events_for_user_path(@user, day.year,day.month,day.day), :remote => true)
    res << %(</td>)
    res << %(</tr>) if day.sunday?

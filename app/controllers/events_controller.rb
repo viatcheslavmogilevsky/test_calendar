@@ -7,6 +7,9 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "add new event"
       redirect_to root_path
+    else
+      @events = []
+      render 'home/index'
     end
   end
 
@@ -20,6 +23,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event_id = params[:id]
+    @event_date = @event.calendar_date
     @event.destroy
     respond_to do |f|
       f.html { redirect_to root_path }

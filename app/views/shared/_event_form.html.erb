@@ -1,7 +1,7 @@
 <div id="new_event_div">
-  <h1> describe your event </h1>
+  <h3>describe your event</h3>
 <%= form_for @event do |f| %>
-  <%= devise_error_messages! %>
+  <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
     <%= f.text_area :content, :rows => 15, :cols => 50 %>
   </div>

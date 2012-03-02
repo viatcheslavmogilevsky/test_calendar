@@ -1,0 +1,12 @@
+$('#event<%=@event_id%>').fadeOut(400,function(){ this.hide(); });
+var a = $('#<%= @event_date.day %>_<%=@event_date.month %>_<%= @event_date.year %> a')
+var c = parseInt(a.html().match(/\d+(?=\))/)[0])
+if (c > 1) {
+  c-=1;
+  a.html("<%= @event_date.day %>("+c+")");
+}
+else {
+  a.parent().removeClass('iday');
+  a.parent().addClass('someday');
+  a.parent().html("<%= @event_date.day %>");
+}
