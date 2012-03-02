@@ -2,11 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .profile {
+  /*width: 100%;*/
   tr {
     vertical-align: top;
   }
 }
 .calendar {
+
+  /*width: 100px;*/
   a:hover { cursor: pointer;}
   a {display: block;}
+}
+
+#events_list
+{
+  tr td {
+  border:
+  {top: solid;}
+   }
 }

@@ -8,3 +8,6 @@
     <td> <%= render 'shared/calendar' %> </td>
   </tr>
 </table>
+<% if @event %>
+  <%= render 'shared/event_form' %>
+<% end %>

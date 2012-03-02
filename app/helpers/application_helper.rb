@@ -1,4 +1,5 @@
 module ApplicationHelper
+
  def scatter(args)
    current_year,current_month,current_day = nil,nil,nil
    event_count = 1

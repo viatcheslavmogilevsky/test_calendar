@@ -1,7 +1,9 @@
+<div id="new_event_div">
+  <h1> describe your event </h1>
 <%= form_for @event do |f| %>
-  <%# render 'shared/error_messages', :object => f.object %>
+  <%= devise_error_messages! %>
   <div class="field">
-    <%= f.text_area :content  %>
+    <%= f.text_area :content, :rows => 15, :cols => 50 %>
   </div>
   <div class="field">
     <label>Date:</label>
@@ -11,3 +13,4 @@
     <%= f.submit "Create event" %>
   </div>
 <% end %>
+</div>

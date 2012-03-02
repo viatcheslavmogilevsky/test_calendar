@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  include UsersHelper
   def index
     @users = User.all
   end
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = @user.events
+    @event = Event.new if current_user?(@user)
   end
 
   def events_for

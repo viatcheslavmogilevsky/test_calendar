@@ -3,5 +3,9 @@
     <%= link_to event.user.name, event.user %> <br>
     <span><%= inspect_date(event.calendar_date) %></span> <br>
     <span><%= event.content %></span>
+    <% if current_user?(event.user) %>
+      <%= link_to 'edit', edit_event_path(event) %> |
+      <%= link_to 'remove', event, :method => :delete %>
+    <% end %>
   </td>
 </tr>

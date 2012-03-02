@@ -10,6 +10,7 @@ gem 'devise'
 gem 'execjs'
 gem 'therubyracer'
 gem 'faker'
+gem 'factory_girl_rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,7 +27,6 @@ gem 'jquery-rails'
 
 group :test do
   gem 'rspec'
-  gem 'factory_girl_rails'
 end
 
 group :development do

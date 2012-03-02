@@ -3,8 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #new_event_div {
   width: 75%;
-  background-color: darken(#0000FF,40%);
   /*text-align: center;*/
-  textarea { width: 90% }
+  border: {
+    style: solid;
+    color: black;
+    width: 1px;
+  }
+  textarea {
+    width: 90%;
+    resize: none;
+  }
   * {padding: 5px;}
 }
