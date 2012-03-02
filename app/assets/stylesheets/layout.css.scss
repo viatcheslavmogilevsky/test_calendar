@@ -1,5 +1,10 @@
 $main_color: #1E1E1E;
 
+nav ul li {
+  display: block inline;
+  list-style-type: none;
+}
+
 body {
-background-color: darken(#FFF,50%);
+  background-color: darken(#FFF,50%);
 }

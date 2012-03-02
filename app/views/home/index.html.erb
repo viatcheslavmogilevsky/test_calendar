@@ -1,1 +1,7 @@
-<%= render 'shared/event_form' %>
+<table summary="common events" id="events_list">
+  <%= render @events  %>
+</table>
+<div id="new_event_div">
+  <h1> describe your new event: </h1>
+  <%= render 'shared/event_form' %>
+</div>

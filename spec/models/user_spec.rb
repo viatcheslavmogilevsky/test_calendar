@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe User do
 
-=begin
+begin
   describe "micropost associations" do
 
     before(:each) do
@@ -41,7 +41,7 @@ describe User do
 
   end
 
-=end
+end
   before(:each) do
     @attr = { :name => "Example User",
 	      :email => "user@example.com",
