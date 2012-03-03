@@ -1,19 +1,26 @@
 $main_color: #1E1E1E;
 
+@mixin r_corner($radius)
+{
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
 nav {
-
+  @include r_corner(5px);
   background-color: black;
+  padding: 15px;
   ul li {
     display: inline-block;
     list-style-type: none;
     a {
       color: white;
-      &:visited {color: gray;}
+      &:visited {color: blue;}
       }
     }
   }
 
 
-/*body {
-  background-color: darken(#FFF,50%);
-}*/
+body {
+  background-color: #EEC591;
+}

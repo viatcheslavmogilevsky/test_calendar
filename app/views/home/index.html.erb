@@ -1,1 +1,12 @@
-<%= render 'shared/event_form' %>
+<% if user_signed_in? %>
+  <table summary="latest events" id="events_list">
+    <%= render @events %>
+  </table>
+  <%= render 'shared/event_form' %>
+<% else %>
+  <h1>Test Application</h1>
+  <p>
+    Welcome to the Test Application
+  </p>
+  <%= link_to "sign up now", new_user_registration_path %>
+<% end %>
