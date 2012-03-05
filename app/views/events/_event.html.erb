@@ -9,7 +9,7 @@
         <%= link_to 'remove', event, :method => :delete, :remote => true %>
       </div>
     <% else %>
-      <span><%= inspect_date(event.calendar_date) %></span> <br>
+      <span><%= event.calendar_date %></span> <br>
       <span><%= event.content %></span>
     <% end %>
   </td>
