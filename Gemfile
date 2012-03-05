@@ -11,6 +11,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'faker'
 gem 'pg'
+gem 'rest_in_place'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,6 +28,7 @@ gem 'jquery-rails'
 
 group :test do
   gem 'rspec'
+  gem 'factory_girl_rails'
 end
 
 group :development do

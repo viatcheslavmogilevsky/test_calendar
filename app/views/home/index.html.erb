@@ -1,4 +1,5 @@
-<% if user_signed_in? %>
+<% if @events %>
+  <h1>latest events</h1>
   <table summary="latest events" id="events_list">
     <%= render @events %>
   </table>
@@ -8,5 +9,6 @@
   <p>
     Welcome to the Test Application
   </p>
-  <%= link_to "sign up now", new_user_registration_path %>
+  <%= link_to "sign up now", new_user_registration_path %><br>
+  <%= link_to "sign in", new_user_session_path %>
 <% end %>

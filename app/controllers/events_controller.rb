@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user, :except => [:create]
+  include UsersHelper
 
   def create
     @event = current_user.events.build(params[:event])
@@ -34,7 +35,9 @@ class EventsController < ApplicationController
 
   def edit
     respond_to do |f|
-      f.html { session[:return_to] ||= request.referer}
+      f.html {
+        session[:return_to] ||= request.referer
+      }
       f.js
     end
   end
@@ -43,6 +46,6 @@ class EventsController < ApplicationController
 
   def check_user
     @event = Event.find(params[:id])
-    redirect_to root_path if current_user != @event.user
+    redirect_to root_path unless current_user?(@event.user)
   end
 end

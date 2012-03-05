@@ -3,45 +3,6 @@ require 'spec_helper'
 
 describe User do
 
-begin
-  describe "micropost associations" do
-
-    before(:each) do
-      @user = User.create(@attr)
-      @mp1 = Factory(:micropost, :user => @user, :created_at => 1.day.ago, :calendar_date => Date.today.prev_year+rand(730))
-      @mp2 = Factory(:micropost, :user => @user, :created_at => 1.hour.ago, :calendar_date => Date.today.prev_year+rand(730))
-    end
-
-    it "should have a microposts attribute" do
-      @user.should respond_to(:microposts)
-    end
-
-    it "should have the right microposts in the right order" do
-      @user.microposts.should == [@mp2, @mp1]
-    end
-
-    describe "status feed" do
-
-      it "should have a feed" do
-       @user.should respond_to(:feed)
-      end
-
-      it "should include the user's microposts" do
-       @user.feed.include?(@mp1).should be_true
-       @user.feed.include?(@mp2).should be_true
-      end
-
-      it "should not include a different user's microposts" do
-       mp3 = Factory(:micropost,
-        :user => Factory(:user, :email => Factory.next(:email)), :calendar_date => Date.new(2011,3,6))
-       @user.feed.include?(mp3).should be_false
-      end
-
-    end
-
-  end
-
-end
   before(:each) do
     @attr = { :name => "Example User",
 	      :email => "user@example.com",
@@ -54,32 +15,12 @@ end
     User.create!(@attr)
   end
 
-  it "should require a name"  do
-    no_name_user = User.new(@attr.merge(:name => ""))
-    no_name_user.should_not be_valid
-  end
-
   it "should reject names that are too long" do
     long_name = "a"*51
     long_name_user = User.new(@attr.merge(:name => long_name))
     long_name_user.should_not be_valid
   end
 
-  it "should accept valid email addresses" do
-    addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
-    addresses.each do |address|
-      valid_email_user = User.new(@attr.merge(:email => address))
-      valid_email_user.should be_valid
-    end
-  end
-
-  it "should reject invalid email addresses" do
-    addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
-    addresses.each do |address|
-      invalid_email_user = User.new(@attr.merge(:email => address))
-      invalid_email_user.should_not be_valid
-    end
-  end
 
   it "should reject email addresses identical up to case" do
     upcased_email = @attr[:email].upcase
@@ -89,6 +30,24 @@ end
   end
 
 
+  describe "event associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @ev1 = Factory(:event, :user => @user, :created_at => 1.day.ago, :calendar_date => 5.day.ago)
+      @ev2 = Factory(:event, :user => @user, :created_at => 1.hour.ago, :calendar_date => 1.year.ago)
+    end
+
+    it "should have a events attribute" do
+      @user.should respond_to(:events)
+    end
+
+    it "should have the right events in the right order" do
+      @user.events.should == [@ev1, @ev2]
+    end
+
+
+  end
 
 
       describe "password validations" do
@@ -118,54 +77,6 @@ end
 
 
 
-=begin
-     describe "password encryption" do
-
-        before(:each) do
-          @user = User.create!(@attr)
-        end
-
-        it "should have an encrypted password attribute" do
-          @user.should respond_to(:enc_pass)
-        end
-
-
-        describe "has_password? method" do
-
-           it "should be true if the passwords match" do
-              @user.has_password?(@attr[:password]).should be_true
-           end
-
-           it "should be false if the passwords don't match" do
-              @user.has_password?("invalid").should be_false
-           end
-        end
-
-	describe "authenticate method" do
-
-   	   it "should return nil on email/password mismatch" do
-  	      wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
-  	      wrong_password_user.should be_nil
-  	   end
-
-    	   it "should return nil for an email address with no user" do
-              nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
-              nonexistent_user.should be_nil
-           end
-
-           it "should return the user on email/password match" do
-              matching_user = User.authenticate(@attr[:email], @attr[:password])
-              matching_user.should == @user
-           end
-        end
-
-
-
-
-
-     end
-
-=end
 
 
 
