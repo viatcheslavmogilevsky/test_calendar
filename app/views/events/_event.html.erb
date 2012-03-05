@@ -3,7 +3,7 @@
     <%= link_to event.user.name, event.user %> <br>
     <% if current_user?(event.user) %>
       <div id="<%= dom_id event %>" data-object="event" data-url="<%= url_for event %>" >
-        <span class="rest-in-place" data-attribute="calendar_date"><%= inspect_date(event.calendar_date) %></span> <br>
+        <span class="rest-in-place" data-attribute="calendar_date"><%= event.calendar_date %></span> <br>
         <span class="rest-in-place" data-attribute="content"><%= event.content %></span>
         <%# link_to 'edit', edit_event_path(event) %> |
         <%= link_to 'remove', event, :method => :delete, :remote => true %>
