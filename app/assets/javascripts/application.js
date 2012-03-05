@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery-ui
+//= require 'rest_in_place'

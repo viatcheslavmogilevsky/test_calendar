@@ -1,13 +1,16 @@
-<tr id="event<%=event.id%>">
+<tr>
   <td>
-    <div class="event_content">
-      <%= link_to event.user.name, event.user %> <br>
+    <%= link_to event.user.name, event.user %> <br>
+    <% if current_user?(event.user) %>
+      <div id="<%= dom_id event %>" data-object="event" data-url="<%= url_for event %>" >
+        <span class="rest-in-place" data-attribute="calendar_date"><%= inspect_date(event.calendar_date) %></span> <br>
+        <span class="rest-in-place" data-attribute="content"><%= event.content %></span>
+        <%# link_to 'edit', edit_event_path(event) %> |
+        <%= link_to 'remove', event, :method => :delete, :remote => true %>
+      </div>
+    <% else %>
       <span><%= inspect_date(event.calendar_date) %></span> <br>
       <span><%= event.content %></span>
-      <% if current_user?(event.user) %>
-        <%= link_to 'edit', edit_event_path(event) %> |
-        <%= link_to 'remove', event, :method => :delete, :remote => true %>
-      <% end %>
-    </div>
+    <% end %>
   </td>
 </tr>

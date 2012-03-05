@@ -16,10 +16,23 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(params[:event])
-      flash[:success] = "event updated"
-      redirect_to session[:return_to]
+      respond_to do |f|
+        f.html {
+          flash[:success] = "event updated"
+          redirect_to session[:return_to]
+        }
+        f.json {
+          render :json => @event
+        }
+      end
     else
-      render 'edit'
+      respond_to do |f|
+        f.html {render 'edit'}
+        f.json {
+          Rails.logger.debug '--------------------------------'
+          render :nothing => true
+        }
+      end
     end
   end
 
@@ -39,6 +52,12 @@ class EventsController < ApplicationController
         session[:return_to] ||= request.referer
       }
       f.js
+    end
+  end
+
+  def show
+    respond_to do |f|
+      f.json {render :json => @event}
     end
   end
 
