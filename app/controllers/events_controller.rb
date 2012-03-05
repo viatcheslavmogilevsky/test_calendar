@@ -29,7 +29,6 @@ class EventsController < ApplicationController
       respond_to do |f|
         f.html {render 'edit'}
         f.json {
-          Rails.logger.debug '--------------------------------'
           render :nothing => true
         }
       end
@@ -37,7 +36,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event_id = params[:id]
+    @event_id = @event.id
     @event_date = @event.calendar_date
     @event.destroy
     respond_to do |f|

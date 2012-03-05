@@ -1,4 +1,4 @@
-$('#event<%=@event_id%>').parent().fadeOut(400,function(){ this.hide(); });
+$('#event_<%=@event_id%>').parent().fadeOut(400,function(){ this.hide(); });
 var a = $('#<%= @event_date.day %>_<%=@event_date.month %>_<%= @event_date.year %> a')
 var c = parseInt(a.html().match(/\d+(?=\))/)[0])
 if (c > 1) {
