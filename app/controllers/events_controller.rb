@@ -16,7 +16,6 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(params[:event])
-      Rails.logger.debug "suc"
       respond_to do |f|
         f.html {
           flash[:success] = "event updated"
@@ -27,7 +26,6 @@ class EventsController < ApplicationController
         }
       end
     else
-      Rails.logger.debug "fail"
       respond_to do |f|
         f.html {render 'edit'}
         f.json {
