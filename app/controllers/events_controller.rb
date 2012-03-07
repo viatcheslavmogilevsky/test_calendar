@@ -55,6 +55,7 @@ class EventsController < ApplicationController
 
   def show
     respond_to do |f|
+      f.html
       f.json {render :json => @event}
     end
   end
