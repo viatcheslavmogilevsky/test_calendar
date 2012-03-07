@@ -9,7 +9,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = @user.events
-    @event = Event.new if current_user?(@user)
+    if current_user?(@user)
+      @event = Event.new
+      session[:return_to] ||= request.referer
+    end
   end
 
   def events_for

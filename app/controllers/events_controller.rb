@@ -50,7 +50,6 @@ class EventsController < ApplicationController
       f.html {
         session[:return_to] ||= request.referer
       }
-      f.js
     end
   end
 
