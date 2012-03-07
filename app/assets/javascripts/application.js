@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require 'rest_in_place'
 //= require_tree .
+//= require 'rest_in_place'
