@@ -22,12 +22,28 @@ nav {
 
 
 body {
-  background-color: #EEC591;
+  background-color: #EDEDED;
 }
 
+header {
+  text-align: center;
+}
 .container {
   margin: 0 auto;
+  width: 60%;
 }
 #events_list {
-  width: 75%;
+  border-collapse: separate;
+  border-spacing: 5px;
+  tr td { border: solid 1px; background-color: #FEF0C9; }
+}
+
+#user_title {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+textarea {
+    resize: none;
+    width: 90%;
 }

@@ -12,16 +12,10 @@ $main_width: 75%;
     width: $main_width;
   }
 }
+
 .calendar {
 
   a:hover { cursor: pointer;}
   a {display: block;}
 }
 
-#events_list
-{
-  tr td {
-  border:
-  {top: solid;}
-   }
-}

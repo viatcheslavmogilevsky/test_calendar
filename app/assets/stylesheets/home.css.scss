@@ -2,15 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #new_event_div {
-  width: 1200px;
   border: {
     style: solid;
     color: black;
     width: 1px;
   }
-  textarea {
-    width: 90%;
-    resize: none;
-  }
+  margin: 5px;
   * {padding: 5px;}
 }

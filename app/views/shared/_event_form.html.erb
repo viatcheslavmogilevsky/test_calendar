@@ -3,7 +3,7 @@
 <%= form_for @event do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.text_area :content, :rows => 10, :cols => 50 %>
+    <%= f.text_area :content, :rows => 10 %>
   </div>
   <div class="field">
     <label>Date:</label>
