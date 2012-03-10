@@ -21,6 +21,13 @@ module ApplicationHelper
    global_res << finish_month(current_year,current_month,current_day,event_count)
  end
 
+ def inspect_date(date)
+   return "Today" if date.today?
+   return "Yesterday" if date.next_day.today?
+   return "Tomorrow" if date.prev_day.today?
+   date.inspect
+ end
+
  private
 
  def finish_month_to(day, year, month,start_day,count)

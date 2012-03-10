@@ -10,3 +10,21 @@
     color: #fff;
   }
 }
+.rest-in-place {
+  width: 100%;
+  display: block;
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#FEF0C9, 15%);
+  }
+  textarea {
+    font: {size: large; }
+    width: 95%;
+  }
+}
+.event_content
+{
+  width: 100%;
+  display: block;
+  border: {top: solid 1px;}
+}

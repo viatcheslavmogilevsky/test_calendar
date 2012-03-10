@@ -9,5 +9,5 @@
   </tr>
 </table>
 <% if @event %>
-  <%= render 'shared/event_form' %>
+  <%= render :partial => "shared/event_form", :locals => {:action => "Create"} %>
 <% end %>

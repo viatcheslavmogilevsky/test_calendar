@@ -3,7 +3,7 @@
   <table summary="latest events" id="events_list">
     <%= render @events %>
   </table>
-  <%= render 'shared/event_form' %>
+  <%= render :partial => "shared/event_form", :locals => {:action => "Create"} %>
 <% else %>
   <h1>Test Application</h1>
   <p>
