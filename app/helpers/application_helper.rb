@@ -30,13 +30,24 @@ module ApplicationHelper
 
  private
 
+ def class_def
+   {
+     :table_class => "ui-datepicker-calendar",
+     :week_end => "ui-datepicker-week-end",
+     :om_day => "ui-datepicker-other-month",
+     :simple_day => "ui-state-default",
+     :selected_day => 'ui-state-active',
+     :div_class => "ui-datepicker"
+   }
+ end
+
  def finish_month_to(day, year, month,start_day,count)
    date = Date.new(year,month,start_day)
    res = show_current_day(date,count)
    date= date.next_day
    while date.day != day
      res << %(<tr>) if date.monday?
-     res << %(<td class ="someday">#{date.day}</td>)
+     res << %(<td class ="#{class_def[:simple_day]}">#{date.day}</td>)
      res << %(</tr>) if date.sunday?
      date = date.next_day
    end
@@ -49,7 +60,7 @@ module ApplicationHelper
    day = date.monday.day
    res = %(<tr>)
    date.cwday.times do |i|
-     res << %(<td class="otherday">#{day+i}</td>)
+     res << %(<td class="#{class_def[:om_day]}">#{day+i}</td>)
    end
    res
  end
@@ -60,7 +71,7 @@ module ApplicationHelper
    date = date.beginning_of_month
    until day == date.day
      res << %(<tr>) if date.monday?
-     res << %(<td class="someday">#{date.day}</td>)
+     res << %(<td class="#{class_def[:simple_day]}">#{date.day}</td>)
      res << %(</tr>) if date.sunday?
      date = date.next_day
    end
@@ -85,8 +96,8 @@ module ApplicationHelper
  def show_current_day(day,count)
    res = ''
    res << %(<tr>) if day.monday?
-   res <<  %(<td class ="iday" id="#{day.day}_#{day.month}_#{day.year}">)
-   res << link_to(%[#{day.day}(#{count})],events_for_user_path(@user, day.year,day.month,day.day), :remote => true)
+   res <<  %(<td class ="#{class_def[:selected_day]}" id="#{day.day}_#{day.month}_#{day.year}">)
+   res << link_to(%[#{day.day}],events_for_user_path(@user, day.year,day.month,day.day), :title => pluralize(count,"event"), :remote => true)
    res << %(</td>)
    res << %(</tr>) if day.sunday?
    res
@@ -98,7 +109,7 @@ module ApplicationHelper
    date = date.next_day
    while month == date.month
      res << %(<tr>) if date.monday?
-     res << %(<td class="someday">#{date.day}</td>)
+     res << %(<td class="#{class_def[:simple_day]}">#{date.day}</td>)
      res << %(</td>) if date.sunday?
      date = date.next_day
    end
@@ -110,13 +121,13 @@ module ApplicationHelper
    return "" if date.monday?
    res = ''
    (8-date.cwday).times do |i|
-     res << %(<td class ="otherday">#{i+1}</td>)
+     res << %(<td class ="#{class_def[:om_day]}">#{i+1}</td>)
    end
    res << %(</tr>)
  end
 
  def show_month_head(name)
-   res = %(<a class="month_link">#{name}</a>)
-   res << %(<div id="#{name}" class="month"><table class="month"><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>)
+   res = %(<h3><a class="month_link">#{name}</a></h3>)
+   res << %(<div id="#{name}" class="#{class_def[:div_class]}"><table class="#{class_def[:table_class]}"><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>)
  end
 end

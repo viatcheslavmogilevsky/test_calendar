@@ -1,12 +1,12 @@
-$('#event_<%=@event_id%>').parent().fadeOut(400,function(){ this.hide(); });
-var a = $('#<%= @event_date.day %>_<%=@event_date.month %>_<%= @event_date.year %> a')
-var c = parseInt(a.html().match(/\d+(?=\))/)[0])
+var a = $('#<%= @event_date.day %>_<%=@event_date.month %>_<%= @event_date.year %> a');
+var c = parseInt(a[0].title[0]);
 if (c > 1) {
   c-=1;
-  a.html("<%= @event_date.day %>("+c+")");
+  a[0].title = c + ((c == 1)? " event": " events");
 }
 else {
-  a.parent().removeClass('iday');
-  a.parent().addClass('someday');
+  a.parent().removeClass('ui-state-active');
+  a.parent().addClass('ui-state-default');
   a.parent().html("<%= @event_date.day %>");
 }
+$('#event_<%=@event_id%>').parent().fadeOut(400,function(){ this.hide(); });

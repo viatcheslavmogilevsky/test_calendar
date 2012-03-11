@@ -1,3 +1,4 @@
 //$('#events_list').fadeTo(400, 0.1, function(){$('#events_list').html("<%# escape_javascript(render('shared/events')) %>");
  //                                               $("#events_list").fadeIn(100);});
 $('#events_list').html("<%= escape_javascript(render('shared/events')) %>");
+$('.rest-in-place').restInPlace();

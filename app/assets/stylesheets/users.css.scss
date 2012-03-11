@@ -2,14 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$main_width: 75%;
 .profile {
   tr {
     vertical-align: top;
     td {width: 15%;}
   }
   tr td:first-child {
-    width: $main_width;
+    width: 75%;
   }
 }
 
@@ -17,5 +16,17 @@ $main_width: 75%;
 
   a:hover { cursor: pointer;}
   a {display: block;}
+
+  .otherday
+  {
+    color: #101010;
+  }
+  td {
+  width:15% !important;
+  text-align: center;
+  }
+  .ui-datepicker-other-month {
+    color: #A1A1A1;
+  }
 }
 
