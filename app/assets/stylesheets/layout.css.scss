@@ -27,7 +27,22 @@ body {
 
 header {
   text-align: center;
+  margin-bottom: 15px;
 }
+#slider_button
+{
+  @include r_corner(3px);
+  background-color: darken(gray,15%);
+  margin: 10px;
+  padding: 5px;
+  display: block;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: darken(gray,5%);
+  }
+}
+
 .container {
   margin: 0 auto;
   width: 75%;
@@ -47,4 +62,8 @@ textarea {
     resize: none;
     width: 90%;
     font: {size: x-large; }
+}
+
+#new_event_div {
+  display: none;
 }

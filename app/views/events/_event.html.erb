@@ -4,12 +4,12 @@
     <span><%= inspect_date (event.calendar_date) %></span> <br/>
     <% if current_user?(event.user) %>
       <div id="<%= dom_id event %>" data-object="event" data-url="<%= url_for event %>">
-        <span class="rest-in-place event_content" data-attribute="content" data-formtype="textarea"><%= event.content %></span>
+        <span class="rest-in-place event_content" data-attribute="content" data-formtype="textarea"><%= raw event.content %></span>
         <%= link_to 'edit', edit_event_path(event) %> |
         <%= link_to 'remove', event, :method => :delete, :remote => true %>
       </div>
     <% else %>
-      <span class="event_content"><%= event.content %></span>
+      <span class="event_content"><%= raw(event.content) %></span>
     <% end %>
   </td>
 </tr>

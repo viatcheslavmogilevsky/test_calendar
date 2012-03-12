@@ -1,13 +1,19 @@
+<% if @event %>
+  <%= render :partial => "shared/event_form", :locals => {:action => "Create"} %>
+  <span id="slider_button">create event</span>
+<% end %>
 <table summary="profile information" class="profile">
   <tr>
     <td>
+      <h1><%=@user.name %></h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <table summary="user events" id="events_list">
-        <%= render 'shared/events' %>
+        <%= render @events %>
       </table>
     </td>
     <td> <%= render 'shared/calendar' %> </td>
   </tr>
 </table>
-<% if @event %>
-  <%= render :partial => "shared/event_form", :locals => {:action => "Create"} %>
-<% end %>
