@@ -8,5 +8,5 @@ $ ->
     if $(this).html() == "create event"
       $(this).html("hide panel")
     else
-      $(this).html("create event") #(this.html == "create event") ? "hide panel": "create event")
+      $(this).html("create event")
   $("#event_content").tinymce({mode: 'textareas', theme: 'advanced'})
