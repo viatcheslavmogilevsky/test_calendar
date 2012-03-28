@@ -14,3 +14,7 @@ end
 Factory.sequence :email do |n|
   "some#{n}@mail.org"
 end
+
+Factory.sequence :calendar_date do |n|
+  Date.today + n
+end
