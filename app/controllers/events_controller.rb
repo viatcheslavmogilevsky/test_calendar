@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event_id = @event.id
-    @event_date = @event.calendar_date
+    #@event_date = @event.calendar_date
     @event.destroy
     respond_to do |f|
       f.html { redirect_to root_path }

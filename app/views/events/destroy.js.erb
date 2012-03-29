@@ -1,4 +1,5 @@
-var a = $('#<%= @event_date.day %>_<%=@event_date.month %>_<%= @event_date.year %> a');
+/*
+var a = $('#<%# @event_date.day %>_<%#@event_date.month %>_<%# @event_date.year %> a');
 var c = parseInt(a[0].title[0]);
 if (c > 1) {
   c-=1;
@@ -7,6 +8,6 @@ if (c > 1) {
 else {
   a.parent().removeClass('ui-state-active');
   a.parent().addClass('ui-state-default');
-  a.parent().html("<%= @event_date.day %>");
-}
+  a.parent().html("<%# @event_date.day %>");
+}*/
 $('#event_<%=@event_id%>').parent().fadeOut(400,function(){ this.hide(); });

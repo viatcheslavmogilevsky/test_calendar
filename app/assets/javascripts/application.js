@@ -11,8 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require tinymce-jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require 'rest_in_place'
 //= require_tree .

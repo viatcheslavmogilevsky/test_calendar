@@ -8,19 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events
+    @events = @user.events.all_events.page params[:page]
     if current_user?(@user)
       @event = Event.new
       session[:return_to] ||= request.referer
     end
   end
 
-  def events_for
-    @user = User.find(params[:id])
-    @events = @user.events_for("#{params[:day]}/#{params[:month]}/#{params[:year]}".to_date)
-    respond_to do |f|
-      f.html
-      f.js
-    end
-  end
 end

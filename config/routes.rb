@@ -50,9 +50,7 @@ Test2::Application.routes.draw do
   # just remember to delete public/index.html.
    root :to => 'home#index'
    devise_for :users
-   resources :users, :only => [:index, :show] do
-     get ':year/:month/:day', :on => :member, :action => :events_for, :as => 'events_for'
-   end
+   resources :users, :only => [:index, :show]
    resources :events, :except => [:new]
   # See how all your routes lay out with "rake routes"
 

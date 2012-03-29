@@ -1,7 +1,8 @@
 <% if @events %>
   <%= render :partial => "shared/event_form", :locals => {:action => "Create"} %>
-  <h1>latest events</h1>
-  <table summary="latest events" id="events_list">
+  <h1>all events</h1>
+  <%= paginate @events %>
+  <table summary="all events" id="events_list">
     <%= render @events %>
   </table>
 <% else %>

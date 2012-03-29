@@ -21,11 +21,19 @@ module ApplicationHelper
    global_res << finish_month(current_year,current_month,current_day,event_count)
  end
 
- def inspect_date(date)
-   return "Today" if date.today?
-   return "Yesterday" if date.next_day.today?
-   return "Tomorrow" if date.prev_day.today?
-   date.inspect
+ def inspect_date(date,repeat)
+   case repeat
+   when 0
+     date.inspect
+   when 1
+     date.strftime("%B, %d")
+   when 2
+     date.strftime("every %d day of the month")
+   when 3
+     date.strftime("%A")+'s'
+   else
+     "every day"
+   end
  end
 
  private

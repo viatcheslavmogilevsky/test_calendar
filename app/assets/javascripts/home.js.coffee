@@ -3,4 +3,3 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   $("#event_calendar_date").datepicker({ dateFormat: "dd/mm/yy", firstDay: 1})
-  $("#event_content").tinymce({mode: 'textareas', theme: 'advanced'})
