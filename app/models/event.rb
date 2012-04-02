@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   before_create :change_date
   paginates_per 10
   scope :all_events, order("repeat DESC, calendar_date ASC")
-  has_attached_file :picture
+  #has_attached_file :picture
   protected
   def change_date
     case repeat

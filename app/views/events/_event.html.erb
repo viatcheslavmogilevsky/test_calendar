@@ -6,13 +6,13 @@
       <div id="<%= dom_id event %>">
         <%= link_to edit_event_path(event) do %>
           <span class="event_content"><%= raw event.content %></span>
-          <%= image_tag event.picture.url if event.picture_file_name %><br/>
+          <%# image_tag event.picture.url if event.picture_file_name %>
         <% end %>
         <%= link_to 'remove', event, :method => :delete, :remote => true %>
       </div>
     <% else %>
       <span class="event_content"><%= raw(event.content) %></span>
-      <%= image_tag event.picture.url if event.picture_file_name %>
+      <%# image_tag event.picture.url if event.picture_file_name %>
     <% end %>
   </td>
 </tr>
